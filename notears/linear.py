@@ -63,7 +63,7 @@ def notears_linear(X, lambda1, loss_type, max_iter=100, h_tol=1e-8, rho_max=1e+1
 
     n, d = X.shape
     w_est, rho, alpha, h = np.zeros(2 * d * d), 1.0, 0.0, np.inf  # double w_est into (w_pos, w_neg)
-    bnds = [(0, 0) if i == j else (0, None) for _ in range(2) for i in range(d) for j in range(d)]
+    bnds = [(0, 0) if i == j else (0, 1) for _ in range(2) for i in range(d) for j in range(d)]
     for _ in range(max_iter):
         w_new, h_new = None, None
         while rho < rho_max:
